@@ -12,7 +12,7 @@
                 <h2>Registro de Funcionários</h2>
                 <form method="post" action="registro_funcionario.php" >
 
-                    <label for="nome_funcionario" >Nome:</label>
+                    <label for="nome_funcionario" >Nome completo:</label>
                     <input type="text" id="nome_funcionario" name="nome_funcionario" required />
                     
                     <br />
@@ -33,7 +33,7 @@
                 <h2>Data de entrada e saída</h2>
                 <form method="post" action="entrada_saida.php">
                     
-                    <label>Nome do funcionário:</label>
+                    <label>Nome completo do funcionário:</label>
                     <input type="text" id="nome_funcionario2" name="nome_funcionario" required />
                     
                     <br />
@@ -52,10 +52,14 @@
 
             <section>
                 <h2>Alterar Pagamento</h2>
-                <form method="post" action="pag_funcionarios.php" >
+                <form method="post" action="alterar_pagamento.php" >
 
-                    <label>Nome do funcionário:</label>
+                    <label>Nome completo do funcionário:</label>
                     <input type="text" id="nome_funcionario" name="nome_funcionario" required />
+
+                    <br />
+                    <label for="novo_salario" >Novo Salário:</label>
+                    <input type="number" id="novo_salario" name="novo_salario" />
 
                     <br />
                     <label for="aumento_salario">Aumento de Salário</label>
