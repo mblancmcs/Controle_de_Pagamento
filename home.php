@@ -48,14 +48,14 @@
 
             <section>
                 <h2>Pagar Funcionário</h2>
-                <form method="post" action="pagamento_funcionario.php">
+                <form method="post" action="pagamento_funcionarios.php">
                     
                     <label>Nome completo do funcionário:</label>
                     <input type="text" id="nome_funcionario2" name="nome_funcionario" required />
 
                     <br />
-                    <label for="aumento_salario">Gratificação eventual</label>
-                    <input type="number" id="aumento_salario" name="aumento_salario" />
+                    <label for="gratificacao">Gratificação eventual</label>
+                    <input type="number" id="gratificacao" name="gratificacao" />
 
                     <br />
                     <label for="valor_hora_extra" >Valor por hora extra:</label>
@@ -66,12 +66,15 @@
                     <input type="time" id="hora_extra" name="hora_extra" />
                     
                     <br />
-                    <label>Data e hora de entrada</label>
-                    <input type ="date" id="data_entrada" name="data_entrada" required placeholder="DD/MM/YYYY HH:mm:ss" />
+                    <label>Hora de entrada</label>
+                    <input type ="time" id="hora_entrada" name="hora_entrada" />
 
                     <br />
-                    <label>Data e hora de saída</label>
-                    <input type="text" id="data_saida" name="data_saida" required placeholder="DD/MM/YYYY HH:mm:ss" />
+                    <label>Hora de saída</label>
+                    <input type="time" id="hora_saida" name="hora_saida"  />
+                    
+                    <br />
+                    <textarea name="breve_descricao" >Breve Descrição</textarea>
 
                     <br />
                     <button type="submit" >Pagar</button>
