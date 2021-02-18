@@ -26,8 +26,8 @@
 
         if(!empty($valor_hora_extra) && !empty($hora_extra) ){
 
-            $hora_extra = explode(':', $hora_extra);
-            $hora_extra_minutos = ($hora_extra[0] * 60) + $hora_extra[1];
+            $hora_extra_array = explode(':', $hora_extra);
+            $hora_extra_minutos = ($hora_extra_array[0] * 60) + $hora_extra_array[1];
 
             $valor_minutos_extras = $valor_hora_extra / 60;
 
@@ -35,11 +35,29 @@
 
         }
 
-        $salario_atual = $salario_funcionario + $valor_hora_extra + $gratificacao;
+        if(empty($gratificacao)){
+        
+            $gratificacao = 0;
 
-        //INCLUIR A GRATIFICAÇÃO E BREVE DESCRIÇÃO
+            $salario_atual = $salario_funcionario + $valor_hora_extra + $gratificacao;
 
-        $sql = "INSERT INTO tb_historico_pagamentos(fk_id_funcionario, salario_funcionario, pagamento_recebido, gratificacao, descricao_pagamento, hora_entrada, hora_saida) VALUES($id_funcionario, $salario_funcionario, $salario_atual, $gratificacao, '$breve_descricao', '$hora_entrada', '$hora_saida') ";
+        } 
+        
+        if(empty($valor_hora_extra)){
+
+            $valor_hora_extra = 0;
+
+            $salario_atual = $salario_funcionario + $valor_hora_extra + $gratificacao;
+
+        }
+
+        if(!empty($gratificacao) && !empty($valor_hora_extra)) {
+
+            $salario_atual = $salario_funcionario + $valor_hora_extra + $gratificacao;
+
+        }
+
+        $sql = "INSERT INTO tb_historico_pagamentos(fk_id_funcionario, salario_funcionario, pagamento_recebido, gratificacao, hora_extra, valor_hora_extra, descricao_pagamentos, hora_entrada, hora_saida) VALUES($id_funcionario, $salario_funcionario, $salario_atual, $gratificacao, '$hora_extra', $valor_hora_extra, '$breve_descricao', '$hora_entrada', '$hora_saida')";
 
         mysqli_query($link, $sql) or die(mysqli_error($link));
 
